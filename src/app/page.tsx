@@ -6,7 +6,7 @@ import { Poppins } from "next/font/google";
 import Aboutus from "./Components/aboutus";
 import Services from "./Components/Services";
 import Services_Cards from "./Components/Services_cards";
-
+import dynamic from 'next/dynamic';
 import Portfolio from "./Components/Portfolio";
 import Contact from "./Components/Contact";
 import Footer from "./Components/Footer";
@@ -15,7 +15,7 @@ const poppins = Poppins({
   subsets: ['latin'], // Use subsets for optimization
   weight: ['900'], // Specify weights you need
 });
-
+const Services_cards = dynamic(() => import('./Components/Services_cards'), { ssr: false });
 export default function Home() {
   const stringArray = ["VISION", "JOURNEY"];
   const words = ["CRAFT", "CREATE", "CODE"];
