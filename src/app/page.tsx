@@ -47,6 +47,9 @@ export default function Home() {
     return () => clearInterval(interval);
   }, [fillProgress]);
 
+   useEffect(() => {
+    console.log(document.title);
+  }, []);
   return (
     <>
 
