@@ -1,3 +1,4 @@
+"use client";
 import React from 'react';
 import Scard from './Scard';
 import { Splide, SplideSlide } from '@splidejs/react-splide';
