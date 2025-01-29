@@ -1,19 +1,23 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap');
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
 :root {
   --background: #ffffff;
-  --foreground: #171717;
+  --foreground: rgba(28, 28, 28, 1);
 }
 
 @media (prefers-color-scheme: dark) {
   :root {
-    --background: #0a0a0a;
+    --background: rgba(28, 28, 28, 1);
     --foreground: #ededed;
   }
 }
-
+* {
+  font-family: 'Montferrat', sans-serif;
+}
 body {
   color: var(--foreground);
   background: var(--background);
