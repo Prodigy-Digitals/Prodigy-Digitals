@@ -6,9 +6,7 @@ import { Poppins } from "next/font/google";
 import Aboutus from "./Components/aboutus";
 import Services from "./Components/Services";
 import Services_Cards from "./Components/Services_cards";
-import { Splide, SplideSlide } from '@splidejs/react-splide';
-import '@splidejs/react-splide/css';
-import '@splidejs/react-splide/css/core';
+
 import Portfolio from "./Components/Portfolio";
 import Contact from "./Components/Contact";
 import Footer from "./Components/Footer";
