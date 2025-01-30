@@ -1,7 +1,9 @@
-"use client";
 import React from 'react';
+import dynamic from 'next/dynamic';
 import Scard from './Scard';
-import { Splide, SplideSlide } from '@splidejs/react-splide';
+
+// Dynamically import Splide to avoid SSR issues
+const Splide = dynamic(() => import('@splidejs/react-splide'), { ssr: false });
 import '@splidejs/react-splide/css';
 import '@splidejs/react-splide/css/core';
 
