@@ -5,19 +5,17 @@ import { useEffect, useState } from "react";
 import { Poppins } from "next/font/google";
 import Aboutus from "./Components/aboutus";
 import Services from "./Components/Services";
-import Services_Cards from "./Components/Services_cards";
-import { Splide, SplideSlide } from '@splidejs/react-splide';
-import '@splidejs/react-splide/css';
-import '@splidejs/react-splide/css/core';
+// import ServicesCards from "./Components/ServicesCards";
 import Portfolio from "./Components/Portfolio";
 import Contact from "./Components/Contact";
 import Footer from "./Components/Footer";
+import dynamic from 'next/dynamic';
 
 const poppins = Poppins({
   subsets: ['latin'], // Use subsets for optimization
   weight: ['900'], // Specify weights you need
 });
-
+const Services_cards = dynamic(() => import('./Components/Services_cards'), { ssr: false });
 export default function Home() {
   const stringArray = ["VISION", "JOURNEY"];
   const words = ["CRAFT", "CREATE", "CODE"];
@@ -46,6 +44,9 @@ export default function Home() {
 
     return () => clearInterval(interval);
   }, [fillProgress]);
+  useEffect(() => {
+    console.log(document.title);
+  }, []);
 
   return (
     <>
@@ -103,7 +104,7 @@ export default function Home() {
 </div>
       <div className="flex justify-center w-full mb-32 mt-32"><Aboutus/></div>
       <div className="flex justify-center w-full"><Services/></div>
-      <div className="z-0"><Services_Cards/></div>
+      <div className="z-0"><Services_cards/></div>
       <div className='flex justify-center mt-6 w-full'><button className='bg-[rgba(249,227,98,1)] w-44 rounded-full text-[rgba(28,28,28,1)] mt-7 mb-7 font-extrabold h-10 flex justify-between pl-7 pr-7 items-center'>View All <img src='./Arrow_Up_Left.png' className='h-9'/></button></div>
       <div className="flex justify-center w-full"><Portfolio/></div>
       <div className="flex justify-center w-full mb-6"><Contact/></div>
