@@ -1,6 +1,6 @@
 import React from 'react';
 import dynamic from 'next/dynamic';
-import { Splide as SplideType, SplideSlide as SplideSlideType } from '@splidejs/react-splide';
+import { Splide, SplideSlide } from '@splidejs/react-splide';
 import { Options } from '@splidejs/splide';
 import '@splidejs/react-splide/css';
 import '@splidejs/react-splide/css/core';
@@ -15,16 +15,7 @@ interface ServiceItem {
   arr: string[];
 }
 
-// Dynamically import Splide components with proper typing
-const Splide = dynamic<typeof SplideType>(
-  () => import('@splidejs/react-splide').then(mod => mod.Splide),
-  { ssr: false }
-);
 
-const SplideSlide = dynamic<typeof SplideSlideType>(
-  () => import('@splidejs/react-splide').then(mod => mod.SplideSlide),
-  { ssr: false }
-);
 
 const ServicesCards: React.FC = () => {
   const serviceData: ServiceItem[] = [
