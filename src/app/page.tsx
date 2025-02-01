@@ -24,12 +24,20 @@ export default function Home() {
   const [currentText, setCurrentText] = useState(0);
 
   // Handle text cycling animation
-  useEffect(() => {
-    const interval = setInterval(() => {
-      setCurrentText((prev) => (prev + 1) % stringArray.length); // Switch to the next string
-    }, 4000); // 2 seconds for each word
-
-    return () => clearInterval(interval); // Cleanup interval on unmount
+ useEffect(() => {
+    // First run with 2s delay
+    const timeout = setTimeout(() => {
+      setCurrentText((prev) => (prev + 1) % stringArray.length);
+  
+      // After first run, start setInterval for 4s intervals
+      const interval = setInterval(() => {
+        setCurrentText((prev) => (prev + 1) % stringArray.length);
+      }, 4000);
+  
+      return () => clearInterval(interval); // Cleanup interval on unmount
+    }, 3500);
+  
+    return () => clearTimeout(timeout); // Cleanup timeout on unmount
   }, []);
 
   useEffect(() => {
