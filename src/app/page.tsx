@@ -1,6 +1,6 @@
 "use client";
 
-// import Navbar from "./Components/Navbar";
+import Navbar from "./Components/Navbar";
 import { useEffect, useState } from "react";
 import { Poppins } from "next/font/google";
 import Aboutus from "./Components/aboutus";
@@ -51,7 +51,7 @@ export default function Home() {
   return (
     <>
 
-{/*       <Navbar /> */}
+      <Navbar />
       <div className="mt-28 px-4 md:px-10">
   <div className="flex flex-col md:flex-row justify-evenly items-center z-10 md:scale-[0.85] lg:scale-100">
    
