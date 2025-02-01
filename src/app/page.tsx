@@ -35,7 +35,7 @@ export default function Home() {
       }, 4000);
   
       return () => clearInterval(interval); // Cleanup interval on unmount
-    }, 3500);
+    }, 4000);
   
     return () => clearTimeout(timeout); // Cleanup timeout on unmount
   }, []);
