@@ -2,6 +2,7 @@
 
 import React from 'react'
 import { useState } from 'react'
+import { useEffect } from "react";
 
 
 const Navbar = () => {
@@ -9,14 +10,30 @@ const Navbar = () => {
 
     const [sidebar,setsidebar]=useState(false)
    
-  const target1=document.getElementById('sidebarz')
+ 
 
-  document.addEventListener('click',(event)=>{
-    const target = event.target as HTMLElement
-    if(target && target.id ==='nav')setsidebar(!sidebar)
+useEffect(() => {
+  const target1 = document.getElementById("sidebarz");
+
+  const handleClick = (event: MouseEvent) => {
+    const target = event.target as HTMLElement;
     
-    else {if(sidebar && !target1?.contains(target))setsidebar(false)}
-  })
+    if (target && target.id === "nav") {
+      setsidebar((prev) => !prev);
+    } else {
+      if (sidebar && !target1?.contains(target)) {
+        setsidebar(false);
+      }
+    }
+  };
+
+  document.addEventListener("click", handleClick);
+
+  return () => {
+    document.removeEventListener("click", handleClick);
+  };
+}, [sidebar]); // Add dependencies to avoid stale state issues
+
  
   return (
     <div className='overflow-x-hidden font-montferrat bg-[rgba(28,28,28,1)] z-50'>
