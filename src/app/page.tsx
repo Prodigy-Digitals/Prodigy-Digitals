@@ -15,7 +15,7 @@ const poppins = Poppins({
   subsets: ['latin'], // Use subsets for optimization
   weight: ['900'], // Specify weights you need
 });
-const Services_cards = dynamic(() => import('./Components/Services_cards'), { ssr: false });
+// const Services_cards = dynamic(() => import('./Components/Services_cards'), { ssr: false });
 export default function Home() {
   const stringArray = ["VISION", "JOURNEY"];
   const words = ["CRAFT", "CREATE", "CODE"];
