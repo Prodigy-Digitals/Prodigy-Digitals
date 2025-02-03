@@ -88,7 +88,7 @@ export default function Home() {
                     deleteSpeed:100
                   }}
                 />
-
+              </div>
           </div>
 
       </div>
