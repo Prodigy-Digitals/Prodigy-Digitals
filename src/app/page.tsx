@@ -78,7 +78,7 @@ export default function Home() {
           </div>
           <div className="w-full text-center flex justify-center md:justify-normal">
 
-           <div className="font-extrabold text-[2.5vh] md:text-[3.5vh] lg:text-[5vh] flex-shrink-0 border-r-4 animate-typing pr-1 max-w-max overflow-hidden">
+           <div className="font-extrabold text-[7vw] md:text-[7vw] lg:text-[2.5vw] flex-shrink-0 border-r-4 animate-typing pr-1 max-w-max overflow-hidden">
                 <Typewriter
                   options={{
                     strings: ['JOURNEY', 'VISION'],
