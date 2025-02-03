@@ -9,7 +9,7 @@ import Services_cards from "./Components/Services_cards";
 import Portfolio from "./Components/Portfolio";
 import Contact from "./Components/Contact";
 import Footer from "./Components/Footer";
-import dynamic from 'next/dynamic';
+import Typewriter from 'typewriter-effect';
 
 const poppins = Poppins({
   subsets: ['latin'], // Use subsets for optimization
@@ -77,9 +77,18 @@ export default function Home() {
             <a className="text-[rgba(249,227,98,1)]">EMPOWERING</a> YOUR
           </div>
           <div className="w-full text-center flex justify-center md:justify-normal">
-           <div className="font-extrabold text-[7vw] md:text-[7vw] lg:text-[2.5vw] flex-shrink-0 border-r-4 pr-1 max-w-max animate-typing overflow-hidden">
-             {stringArray[currentText]}
-           </div>
+
+           <div className="font-extrabold text-[2.5vh] md:text-[3.5vh] lg:text-[5vh] flex-shrink-0 border-r-4 animate-typing pr-1 max-w-max overflow-hidden">
+                <Typewriter
+                  options={{
+                    strings: ['JOURNEY', 'VISION'],
+                    autoStart: true,
+                    loop: true,
+                    cursor: '',
+                    deleteSpeed:100
+                  }}
+                />
+
           </div>
 
       </div>

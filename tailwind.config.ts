@@ -9,16 +9,7 @@ export default {
   theme: {
     extend: {
       keyframes: {
-        typing: {
-          "0%": {
-            width: "0%",
-            visibility: "hidden"
-          },
-         
-          "100%": {
-            width: "100%"
-          }  
-        },
+        
         blink: {
           "50%": {
             borderColor: "transparent"
@@ -29,7 +20,7 @@ export default {
         }
       },
       animation: {
-        typing: "typing 2s steps(20) infinite alternate, blink steps(10) 0.9s infinite"
+        typing: "blink steps(1) 1.06s infinite"
       },
       
       fontFamily: {
