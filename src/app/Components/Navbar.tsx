@@ -10,38 +10,38 @@ const Navbar = () => {
 
     const [sidebar,setsidebar]=useState(false)
    
- 
+   
 
-useEffect(() => {
-  const target1 = document.getElementById("sidebarz");
-
-  const handleClick = (event: MouseEvent) => {
-    const target = event.target as HTMLElement;
+    useEffect(() => {
+      const target1 = document.getElementById("sidebarz");
     
-    if (target && target.id === "nav") {
-      setsidebar((prev) => !prev);
-    } else {
-      if (sidebar && !target1?.contains(target)) {
-        setsidebar(false);
-      }
-    }
-  };
-
-  document.addEventListener("click", handleClick);
-
-  return () => {
-    document.removeEventListener("click", handleClick);
-  };
-}, [sidebar]); // Add dependencies to avoid stale state issues
-
+      const handleClick = (event: MouseEvent) => {
+        const target = event.target as HTMLElement;
+        
+        if (target && target.id === "nav") {
+          setsidebar((prev) => !prev);
+        } else {
+          if (sidebar && !target1?.contains(target)) {
+            setsidebar(false);
+          }
+        }
+      };
+    
+      document.addEventListener("click", handleClick);
+    
+      return () => {
+        document.removeEventListener("click", handleClick);
+      };
+    }, [sidebar]); // Add dependencies to avoid stale state issues
+    
  
   return (
     <div className='overflow-x-hidden font-montferrat bg-[rgba(28,28,28,1)] z-50'>
             <div className='h-24 w-full flex items-center md:justify-between justify-between fixed bg-[rgba(28,28,28,1)] z-50'>
 
-                <div className='ml-2 lg:ml-24 h-full flex items-center'><img src='./Prodigy_logo.jpg' className='h-20 flex items-center object-cover z-50'/></div>
+                <div className='ml-2 lg:ml-24 md:scale-[0.90] lg:scale-100 h-full flex items-center'><img src='./Prodigy_logo.jpg' className='h-20 flex items-center object-cover z-50'/></div>
 
-                <div className=' flex-row gap-12 font-semibold hidden md:flex text-lg items-center z-50'>
+                <div className=' flex-row gap-12 font-semibold hidden md:flex text-lg md:text-md md:gap-7 lg:gap-12 lg:text-lg items-center z-50'>
                 <div className='hover:text-[rgba(249,227,98,1)] transition-all duration-200'>HOME</div>
                 <div className='hover:text-[rgba(249,227,98,1)] transition-all duration-200'>ABOUT</div>
                 <div className='hover:text-[rgba(249,227,98,1)] transition-all duration-200'>SERVICE</div>
@@ -51,7 +51,7 @@ useEffect(() => {
 
 
 
-                <div className='flex flex-col gap-[2px] items-end mr-5 z-50' onMouseEnter={()=>sethovern(1)} onMouseLeave={()=>sethovern(0)} id='nav'>
+                <div className='flex flex-col gap-[2px] md:scale-[0.90] lg:scale-100 items-end mr-5 z-50' onMouseEnter={()=>sethovern(1)} onMouseLeave={()=>sethovern(0)} id='nav'>
                 <div className={`w-[29px] transition-all duration-200 h-[5px] rounded-full ${hovern==1?'bg-[rgba(249,227,98,1)]':'bg-white'}`} id='nav'></div> 
                 <div className={`w-[22px] transition-all duration-200 h-[5px] rounded-full ${hovern==1?'bg-[rgba(249,227,98,1)]':'bg-white'}`} id='nav'></div> 
                 <div className={`w-[13px] transition-all duration-200 h-[5px] rounded-full ${hovern==1?'bg-[rgba(249,227,98,1)]':'bg-white'}`} id='nav'></div> 
