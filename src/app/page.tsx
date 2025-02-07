@@ -10,6 +10,7 @@ import Portfolio from "./Components/Portfolio";
 import Contact from "./Components/Contact";
 import Footer from "./Components/Footer";
 import Typewriter from 'typewriter-effect';
+import Link from "next/link";
 
 const poppins = Poppins({
   subsets: ['latin'], // Use subsets for optimization
@@ -99,7 +100,7 @@ export default function Home() {
 
     <img
       src="./Image_on_Home_Page.png"
-      className="w-[40vw] md:w-[55vw] lg:w-[35vw] h-auto flex items-center object-contain"
+      className="w-[75vw] md:w-[60vw] lg:w-[35vw] h-auto flex items-center object-contain"
     />
   </div>
 </div>
@@ -120,11 +121,11 @@ export default function Home() {
   ))}
 </div>
       <div className="flex justify-center w-full mb-32 mt-32"><Aboutus/></div>
-      <div className="flex justify-center w-full"><Services/></div>
+      <div className="flex justify-center w-full mt-12"><Services/></div>
       <div className="z-0"><Services_cards/></div>
-      <div className='flex justify-center mt-6 w-full'><button className='bg-[rgba(249,227,98,1)] w-44 rounded-full text-[rgba(28,28,28,1)] mt-7 mb-7 font-extrabold h-10 flex justify-between pl-7 pr-7 items-center'>View All <img src='./Arrow_Up_Left.png' className='h-9'/></button></div>
-      <div className="flex justify-center w-full"><Portfolio/></div>
-      <div className="flex justify-center w-full mb-6"><Contact/></div>
+      <Link href='/services' className='flex justify-center -mt-16 sm:mt-6 w-full'><button className='bg-[rgba(249,227,98,1)] w-44 rounded-full text-[rgba(28,28,28,1)] mt-7 mb-7 font-extrabold h-10 flex justify-between pl-7 pr-7 items-center hover:animate-jiggle'>View All <img src='./Arrow_Up_Left.png' className='h-9'/></button></Link>
+      <div className="flex justify-center w-full mt-12 sm:mt-0"><Portfolio/></div>
+      <div className="flex justify-center w-full mb-8 sm:mb-12 md:mb-14 mt-16 sm:mt-0"><Contact/></div>
       <div className="flex justify-center w-full overflow-hidden"><Footer/></div>
     </>
   );

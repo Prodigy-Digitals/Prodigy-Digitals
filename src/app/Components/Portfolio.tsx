@@ -37,27 +37,26 @@ const Portfolio = () => {
           </p>
 
           {/* Button */}
-          <button className="group bg-[rgba(249,227,98,1)] 
-            w-full sm:w-80 max-w-sm
+          <button className=" bg-[rgba(249,227,98,1)] 
+             w-72
             rounded-full py-2 px-6
             text-[rgba(28,28,28,1)] font-extrabold
-            transition-transform hover:scale-105
+            transition-transform hover:animate-jiggle
             flex items-center justify-between">
             <span>Explore Our Portfolio</span>
             <img 
               src="./Arrow_Up_Left.png" 
               alt="Arrow Icon"
-              className="h-5 sm:h-6 transition-transform 
-                group-hover:rotate-12"
+              className="h-9 transition-transform"
             />
           </button>
         </div>
 
         {/* Right Section (Image) */}
         <div className="w-full sm:w-4/5 lg:w-1/2 max-w-lg">
-          <div className="relative rounded-lg shadow-xl 
+          <div className="relative rounded-lg
             overflow-hidden transition-transform 
-            hover:shadow-2xl hover:scale-[1.02]">
+            ">
             <img 
               src="./Portfolio.png" 
               alt="Portfolio Image" 

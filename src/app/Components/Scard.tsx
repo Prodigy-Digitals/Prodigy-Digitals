@@ -12,7 +12,7 @@ interface ScardProps {
 const Scard: React.FC<ScardProps> = ({ img, head, text, subhead, arr }) => {
   
   return (
-    <div className='flex justify-center z-0'>
+    <div className='flex justify-center z-0 scale-[0.85] sm:scale-100'>
       <div 
         className='h-[533px] w-[397px] rounded-3xl bg-gradient-to-r font-montferrat overflow-hidden from-[rgba(34,36,36,1)] to-[rgba(0,0,0,0)] shadow-white'
         style={{ boxShadow: "3px 3px 6px rgba(255, 255, 255, 0.1)", scale: '0.9' }}

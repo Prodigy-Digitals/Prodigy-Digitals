@@ -9,7 +9,12 @@ export default {
   theme: {
     extend: {
       keyframes: {
-        
+        jiggle: {
+          "0%, 100%": { transform: "rotate(0deg)" },
+          "25%": { transform: "rotate(7deg)" },
+          "50%": { transform: "rotate(-7deg)" },
+          "75%": { transform: "rotate(7deg)" },
+        },
         blink: {
           "50%": {
             borderColor: "transparent"
@@ -20,7 +25,8 @@ export default {
         }
       },
       animation: {
-        typing: "blink steps(1) 1.06s infinite"
+        typing: "blink steps(1) 1.06s infinite",
+        jiggle: "jiggle 0.3s ease-in-out",
       },
       
       fontFamily: {

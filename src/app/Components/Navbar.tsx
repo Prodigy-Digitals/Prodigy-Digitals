@@ -3,9 +3,13 @@
 import React from 'react'
 import { useState } from 'react'
 import { useEffect } from "react";
+import Link from 'next/link';
+import { usePathname } from 'next/navigation';
 
 
 const Navbar = () => {
+    const pathname = usePathname();
+
     const [hovern,sethovern]=useState(0)
 
     const [sidebar,setsidebar]=useState(false)
@@ -42,11 +46,11 @@ const Navbar = () => {
                 <div className='ml-2 lg:ml-24 md:scale-[0.90] lg:scale-100 h-full flex items-center'><img src='./Prodigy_logo.jpg' className='h-20 flex items-center object-cover z-50'/></div>
 
                 <div className=' flex-row gap-12 font-semibold hidden md:flex text-lg md:text-md md:gap-7 lg:gap-12 lg:text-lg items-center z-50'>
-                <div className='hover:text-[rgba(249,227,98,1)] transition-all duration-200'>HOME</div>
-                <div className='hover:text-[rgba(249,227,98,1)] transition-all duration-200'>ABOUT</div>
-                <div className='hover:text-[rgba(249,227,98,1)] transition-all duration-200'>SERVICE</div>
-                <div className='hover:text-[rgba(249,227,98,1)] transition-all duration-200'>PORTFOLIO</div>
-                <div className='hover:text-[rgba(249,227,98,1)] transition-all duration-200'>CONTACT</div>
+                <Link href='/' className={`hover:scale-105 transition-all duration-200 ${pathname=='/'?'text-[rgba(249,227,98,1)]':''}`}>HOME</Link>
+                <Link href='/about' className={`hover:scale-105 transition-all duration-200 ${pathname=='/about'?'text-[rgba(249,227,98,1)]':''}`}>ABOUT</Link>
+                <Link href='/services' className={`hover:scale-105 transition-all duration-200 ${pathname=='/services'?'text-[rgba(249,227,98,1)]':''}`}>SERVICES</Link>
+                {/* <Link href='/portfolio' className={`hover:scale-105 transition-all duration-200 ${pathname=='/portfolio'?'text-[rgba(249,227,98,1)]':''}`}>PORTFOLIO</Link> */}
+                <Link href='/contact' className={`hover:scale-105 transition-all duration-200 ${pathname=='/contact'?'text-[rgba(249,227,98,1)]':''}`}>CONTACT</Link>
                 </div>
 
 
@@ -85,11 +89,11 @@ const Navbar = () => {
                   </div>
                 </div>
                 <div className='md:hidden flex flex-col gap-10 pt-16 pl-12'>
-                    <div className='hover:text-[rgba(249,227,98,1)] text-3xl transition-all duration-200 font-semibold'>Home</div>
+                    <Link href='/' className='hover:text-[rgba(249,227,98,1)] text-3xl transition-all duration-200 font-semibold'>Home</Link>
                     <div className='hover:text-[rgba(249,227,98,1)] text-3xl transition-all duration-200 font-semibold'>About</div>
-                    <div className='hover:text-[rgba(249,227,98,1)] text-3xl transition-all duration-200 font-semibold'>Service</div>
-                    <div className='hover:text-[rgba(249,227,98,1)] text-3xl transition-all duration-200 font-semibold'>Portfolio</div>
-                    <div className='hover:text-[rgba(249,227,98,1)] text-3xl transition-all duration-200 font-semibold'>Contact</div>
+                    <Link href='/services' className='hover:text-[rgba(249,227,98,1)] text-3xl transition-all duration-200 font-semibold'>Services</Link>
+                    {/* <div className='hover:text-[rgba(249,227,98,1)] text-3xl transition-all duration-200 font-semibold'>Portfolio</div> */}
+                    <Link href='/contact' className='hover:text-[rgba(249,227,98,1)] text-3xl transition-all duration-200 font-semibold'>Contact</Link>
                 </div>
                 </div>
                 

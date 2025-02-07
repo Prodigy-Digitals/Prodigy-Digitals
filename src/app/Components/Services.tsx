@@ -10,7 +10,7 @@ const Services = () => {
   <div className="text-3xl md:text-5xl font-semibold text-center mb-4">
     Explore <span className="text-[rgba(249,227,98,1)]">Featured</span> Services
   </div>
-  <div className="text-center break-words w-[90%] md:w-[50vw] font-light text-xs md:text-base">
+  <div className="text-center break-words -mb-16 sm:mb-0 w-[90%] md:w-[50vw] font-light text-xs md:text-base">
     Explore Our Signature Services: Customized Solutions for Your Brand’s Distinct Path. Empower Your Vision with Our Innovative Expertise.
   </div>
 </div>
