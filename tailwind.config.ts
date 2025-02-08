@@ -11,9 +11,9 @@ export default {
       keyframes: {
         jiggle: {
           "0%, 100%": { transform: "rotate(0deg)" },
-          "25%": { transform: "rotate(7deg)" },
-          "50%": { transform: "rotate(-7deg)" },
-          "75%": { transform: "rotate(7deg)" },
+          "25%": { transform: "rotate(4deg)" },
+          "50%": { transform: "rotate(-4deg)" },
+          "75%": { transform: "rotate(4deg)" },
         },
         blink: {
           "50%": {

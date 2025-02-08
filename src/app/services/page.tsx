@@ -1,8 +1,10 @@
+"use client"
 import React from 'react'
 import Scard from '../Components/Scard';
 import Navbar from '../Components/Navbar';
 import Footer from '../Components/Footer';
 import { Poppins } from "next/font/google";
+import { useState,useEffect } from 'react';
 
 const poppins = Poppins({
     subsets: ['latin'], // Use subsets for optimization
@@ -78,52 +80,119 @@ const Services = () => {
 
     ];
 
+    const [isClient, setIsClient] = useState(false);
+
+  useEffect(() => {
+    setIsClient(true);
+  }, []);
+
+  const scrollToServices = () => {
+    if (isClient) {
+      const section = document.getElementById("services-section");
+      if (section) {
+        section.scrollIntoView({ behavior: "smooth" });
+      }
+    }
+  };
+
     return (
         <div className='w-full overflow-hidden'>
             <Navbar />
-            <div className='uppercase text-[rgba(249,227,98,1)] flex justify-center text-center mt-32 mb-4  poppins.classname text-3xl sm:text-4xl font-extrabold'>Visual Identity Branding</div>
-            <div className='flex flex-wrap justify-center gap-4'>
-            {serviceData.slice(0, 3).map((item, index) => (
-                <div key={index} className='-mb-16 sm:mb-0'>
-                    <Scard
-                        img={item.img}
-                        head={item.head}
-                        text={item.text}
-                        subhead={item.subhead}
-                        arr={item.arr}
-                    />
+
+
+            <section className="py-16 px-6 mt-24 md:px-12 lg:px-24">
+                <div className="text-center max-w-3xl mx-auto">
+                    <h2 className="text-3xl md:text-4xl font-bold mb-4">
+                        Ready to make a Great Brand <span className="text-[rgba(249,227,98,1)]">Impression?</span>
+                    </h2>
+                    <p className="text-gray-300 mb-6">
+                        Elevate your brand with our expert design solutions. Discover a range of creative services tailored to your needs. Let’s create something remarkable together.
+                    </p>
+                    <div className='flex justify-center'><button className='bg-[rgba(249,227,98,1)] w-88 rounded-full text-[rgba(28,28,28,1)] mt-7 mb-7 font-extrabold h-10 flex justify-center pl-7 pr-7 items-center hover:animate-jiggle' onClick={scrollToServices}>Explore Our Services<img src='./Arrow_Up_Left.png' className='h-9'/></button></div>
                 </div>
-            ))}
+
+                <div className="mt-12 text-center">
+                    <h3 className="text-3xl md:text-4xl font-bold">
+                        3 <span className="text-[rgba(249,227,98,1)]">Steps</span> to get Our <span className="text-[rgba(249,227,98,1)]">Services</span> done
+                    </h3>
+                    <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mt-10">
+                        <div className="text-center flex flex-col items-center">
+                            <div className='flex flex-row w-64 items-center justify-between'>
+                                 <div className="text-6xl font-bold text-[rgba(249,227,98,1)]">01</div>
+                                 <div className="text-xl font-semibold mt-2 w-[10rem] text-start">Browse Our Services</div>
+                            </div>
+                            <div className="mt-2 text-sm break-words max-w-[60vw] md:max-w-[20vw]">
+                                Begin by exploring our Service page, and visiting our Gallery to get inspired and visualize your project’s potential.
+                            </div>
+                        </div>
+                        <div className="text-center flex flex-col items-center">
+                            <div className='flex flex-row w-64 items-center justify-between'>
+                                 <div className="text-6xl font-bold text-[rgba(249,227,98,1)]">02</div>
+                                 <div className="text-xl font-semibold mt-2 w-[10rem] text-start">Share Your Vision</div>
+                            </div>
+                            <div className="mt-2 text-sm break-words max-w-[60vw] md:max-w-[20vw]">
+                                Tell us about your project through 'Contact Us' and let us transform your vision into stunning reality.
+                            </div>
+                        </div>
+                        <div className="text-center flex flex-col items-center">
+                            <div className='flex flex-row w-64 items-center justify-between'>
+                                <div className="text-6xl font-bold text-[rgba(249,227,98,1)]">03</div>
+                                <div className="text-xl font-semibold mt-2 w-[10rem] text-start">Collaborate and Create</div>
+                            </div>
+                            <div className="mt-2 text-sm break-words max-w-[60vw] md:max-w-[20vw]">
+                                Collaborate with our designers to craft your brand’s unique identity. Let’s bring your vision to life!
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div id='services-section'></div>
+            </section>
+
+
+            
+            <div className='uppercase text-[rgba(249,227,98,1)] flex justify-center text-center mt-8 mb-4  poppins.classname text-3xl sm:text-4xl font-extrabold'>Visual Identity Branding</div>
+            <div className='flex flex-wrap justify-center gap-4'>
+                {serviceData.slice(0, 3).map((item, index) => (
+                    <div key={index} className='-mb-16 sm:mb-0'>
+                        <Scard
+                            img={item.img}
+                            head={item.head}
+                            text={item.text}
+                            subhead={item.subhead}
+                            arr={item.arr}
+                        />
+                    </div>
+                ))}
             </div>
 
             <div className='uppercase text-[rgba(249,227,98,1)] flex justify-center text-center mt-20 mb-4 poppins.classname text-3xl sm:text-4xl font-extrabold'>Digital Presence & Experience</div>
             <div className='flex flex-wrap justify-center gap-4'>
-            {serviceData.slice(3, 6).map((item, index) => (
-                <div key={index} className='-mb-16 sm:mb-0 gap-4'>
-                    <Scard
-                        img={item.img}
-                        head={item.head}
-                        text={item.text}
-                        subhead={item.subhead}
-                        arr={item.arr}
-                    />
-                </div>
-            ))}
+                {serviceData.slice(3, 6).map((item, index) => (
+                    <div key={index} className='-mb-16 sm:mb-0 gap-4'>
+                        <Scard
+                            img={item.img}
+                            head={item.head}
+                            text={item.text}
+                            subhead={item.subhead}
+                            arr={item.arr}
+                        />
+                    </div>
+                ))}
             </div>
 
             <div className='uppercase text-[rgba(249,227,98,1)] flex justify-center text-center mt-20 mb-4 poppins.classname text-3xl sm:text-4xl font-extrabold'>Content & Marketing Design</div>
             <div className='flex flex-wrap justify-center mb-16 gap-4'>
-            {serviceData.slice(6, 9).map((item, index) => (
-                <div key={index} className='-mb-16 sm:mb-0'>
-                    <Scard
-                        img={item.img}
-                        head={item.head}
-                        text={item.text}
-                        subhead={item.subhead}
-                        arr={item.arr}
-                    />
-                </div>
-            ))}
+                {serviceData.slice(6, 9).map((item, index) => (
+                    <div key={index} className='-mb-16 sm:mb-0'>
+                        <Scard
+                            img={item.img}
+                            head={item.head}
+                            text={item.text}
+                            subhead={item.subhead}
+                            arr={item.arr}
+                        />
+                    </div>
+                ))}
             </div>
             <Footer />
         </div>
