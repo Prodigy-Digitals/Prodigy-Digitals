@@ -1,5 +1,6 @@
 "use client";
 import React from 'react';
+import AnimatedItem from '../Animate';
 
 const Portfolio = () => {
   return (
@@ -37,6 +38,7 @@ const Portfolio = () => {
           </p>
 
           {/* Button */}
+          <AnimatedItem>
           <button className=" bg-[rgba(249,227,98,1)] 
              w-72
             rounded-full py-2 px-6
@@ -50,10 +52,13 @@ const Portfolio = () => {
               className="h-9 transition-transform"
             />
           </button>
+          </AnimatedItem>
         </div>
 
         {/* Right Section (Image) */}
+        
         <div className="w-full sm:w-4/5 lg:w-1/2 max-w-lg">
+        <AnimatedItem>
           <div className="relative rounded-lg
             overflow-hidden transition-transform 
             ">
@@ -63,7 +68,9 @@ const Portfolio = () => {
               className="w-full h-auto object-cover"
             />
           </div>
+          </AnimatedItem>
         </div>
+        
 
       </div>
     </div>

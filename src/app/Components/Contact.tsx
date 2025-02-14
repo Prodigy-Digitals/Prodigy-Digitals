@@ -1,5 +1,6 @@
 "use client";
 import React from 'react'
+import Link from 'next/link';
 
 const Contact = () => {
   return (
@@ -11,9 +12,10 @@ const Contact = () => {
 
   {/* Button Section */}
   <div className='flex justify-center'>
-    <button className='bg-[rgba(249,227,98,1)] hover:animate-jiggle w-48 sm:w-56 md:w-64 rounded-full text-[rgba(28,28,28,1)] font-extrabold h-10 sm:h-12 flex justify-center items-center px-6 sm:px-7'>
+   <Link href='/contact'>
+   <button className='bg-[rgba(249,227,98,1)] hover:animate-jiggle w-48 sm:w-56 md:w-64 rounded-full text-[rgba(28,28,28,1)] font-extrabold h-10 sm:h-12 flex justify-center items-center px-6 sm:px-7'>
       Contact Now
-    </button>
+    </button></Link> 
   </div>
 </div>
   )

@@ -4,6 +4,8 @@ import React, { useState } from "react";
 import emailjs from "emailjs-com";
 import Navbar from "../Components/Navbar";
 import Footer from "../Components/Footer";
+import { useEffect } from "react";
+
 
 const Contact: React.FC = () => {
   const [formData, setFormData] = useState({
@@ -13,7 +15,25 @@ const Contact: React.FC = () => {
     mobile: "",
     details: "",
   });
+  useEffect(() => {
+    // Check if the browser supports scrollRestoration
+    if ('scrollRestoration' in window.history) {
+      window.history.scrollRestoration = 'manual';
+    }
 
+    // Define a handler to scroll to the top on page load
+    const handleLoad = () => {
+      window.scrollTo(0, 0);
+    };
+
+    // Listen for the load event
+    window.addEventListener('load', handleLoad);
+
+    // Clean up the event listener on component unmount
+    return () => {
+      window.removeEventListener('load', handleLoad);
+    };
+  }, []);
   const [errors, setErrors] = useState<{ [key: string]: boolean }>({});
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
@@ -54,15 +74,19 @@ const Contact: React.FC = () => {
     });
   };
 
+ 
+  
+
   return (
     <div className="overflow-hidden">
       <Navbar />
+      
       <div className="mt-32 sm:mt-24 mb-0 sm:-mb-12 md:mt-0 min-h-screen flex justify-center items-center p-6">
         <div className="w-full max-w-6xl grid grid-cols-1 md:grid-cols-2 gap-10">
           
           {/* Left Side - Contact Info */}
           <div className="flex justify-center flex-col">
-            <h1 className="text-4xl font-bold">
+            <h1 className="text-6xl font-bold">
               Looking To Find And <span className="text-[rgba(249,227,98,1)]">Hire</span> Great{" "}
               <span className="text-[rgba(249,227,98,1)]">Designers?</span>
             </h1>

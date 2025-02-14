@@ -5,6 +5,7 @@ import Navbar from '../Components/Navbar';
 import Footer from '../Components/Footer';
 import { Poppins } from "next/font/google";
 import { useState,useEffect } from 'react';
+import AnimatedItem from '../Animate';
 
 const poppins = Poppins({
     subsets: ['latin'], // Use subsets for optimization
@@ -12,6 +13,8 @@ const poppins = Poppins({
 });
 
 const Services = () => {
+  
+    
     const serviceData = [
         {
             img: "./s6.png",
@@ -94,12 +97,29 @@ const Services = () => {
       }
     }
   };
+  useEffect(() => {
+    // Check if the browser supports scrollRestoration
+    if ('scrollRestoration' in window.history) {
+      window.history.scrollRestoration = 'manual';
+    }
+
+    // Define a handler to scroll to the top on page load
+    const handleLoad = () => {
+      window.scrollTo(0, 0);
+    };
+
+    // Listen for the load event
+    window.addEventListener('load', handleLoad);
+
+    // Clean up the event listener on component unmount
+    return () => {
+      window.removeEventListener('load', handleLoad);
+    };
+  }, []);
 
     return (
         <div className='w-full overflow-hidden'>
             <Navbar />
-
-
             <section className="py-16 px-6 mt-24 md:px-12 lg:px-24">
                 <div className="text-center max-w-3xl mx-auto">
                     <h2 className="text-3xl md:text-4xl font-bold mb-4">
@@ -150,10 +170,11 @@ const Services = () => {
 
 
             
-            <div className='uppercase text-[rgba(249,227,98,1)] flex justify-center text-center mt-8 mb-4  poppins.classname text-3xl sm:text-4xl font-extrabold'>Visual Identity Branding</div>
+            <AnimatedItem><div className='uppercase text-[rgba(249,227,98,1)] flex justify-center text-center mt-8 mb-4  poppins.classname text-3xl sm:text-4xl font-extrabold'>Visual Identity Branding</div></AnimatedItem>
             <div className='flex flex-wrap justify-center gap-4'>
                 {serviceData.slice(0, 3).map((item, index) => (
                     <div key={index} className='-mb-16 sm:mb-0'>
+                     <AnimatedItem>
                         <Scard
                             img={item.img}
                             head={item.head}
@@ -161,36 +182,38 @@ const Services = () => {
                             subhead={item.subhead}
                             arr={item.arr}
                         />
+                        </AnimatedItem>
                     </div>
                 ))}
             </div>
 
-            <div className='uppercase text-[rgba(249,227,98,1)] flex justify-center text-center mt-20 mb-4 poppins.classname text-3xl sm:text-4xl font-extrabold'>Digital Presence & Experience</div>
+            <AnimatedItem><div className='uppercase text-[rgba(249,227,98,1)] flex justify-center text-center mt-20 mb-4 poppins.classname text-3xl sm:text-4xl font-extrabold'>Digital Presence & Experience</div></AnimatedItem>
             <div className='flex flex-wrap justify-center gap-4'>
                 {serviceData.slice(3, 6).map((item, index) => (
                     <div key={index} className='-mb-16 sm:mb-0 gap-4'>
-                        <Scard
+                        <AnimatedItem><Scard
                             img={item.img}
                             head={item.head}
                             text={item.text}
                             subhead={item.subhead}
                             arr={item.arr}
-                        />
+                        /></AnimatedItem>
+                        
                     </div>
                 ))}
             </div>
 
-            <div className='uppercase text-[rgba(249,227,98,1)] flex justify-center text-center mt-20 mb-4 poppins.classname text-3xl sm:text-4xl font-extrabold'>Content & Marketing Design</div>
+            <AnimatedItem><div className='uppercase text-[rgba(249,227,98,1)] flex justify-center text-center mt-20 mb-4 poppins.classname text-3xl sm:text-4xl font-extrabold'>Content & Marketing Design</div></AnimatedItem>
             <div className='flex flex-wrap justify-center mb-16 gap-4'>
                 {serviceData.slice(6, 9).map((item, index) => (
                     <div key={index} className='-mb-16 sm:mb-0'>
-                        <Scard
+                        <AnimatedItem><Scard
                             img={item.img}
                             head={item.head}
                             text={item.text}
                             subhead={item.subhead}
                             arr={item.arr}
-                        />
+                        /></AnimatedItem>
                     </div>
                 ))}
             </div>
