@@ -1,20 +1,13 @@
 "use client"
 
 import React, { useState } from "react";
-import emailjs from "emailjs-com";
 import Navbar from "../Components/Navbar";
 import Footer from "../Components/Footer";
 import { useEffect } from "react";
 
 
 const Contact: React.FC = () => {
-  const [formData, setFormData] = useState({
-    name: "",
-    email: "",
-    projectType: "",
-    mobile: "",
-    details: "",
-  });
+
   useEffect(() => {
     // Check if the browser supports scrollRestoration
     if ('scrollRestoration' in window.history) {
@@ -36,44 +29,7 @@ const Contact: React.FC = () => {
   }, []);
   const [errors, setErrors] = useState<{ [key: string]: boolean }>({});
 
-  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
-    setFormData({ ...formData, [e.target.name]: e.target.value });
-  };
-
-  const handleSubmit = (e: React.FormEvent) => {
-    e.preventDefault();
-
-    // Check for empty fields
-    let newErrors: { [key: string]: boolean } = {};
-    Object.keys(formData).forEach((key) => {
-      if (!formData[key as keyof typeof formData].trim()) {
-        newErrors[key] = true;
-      }
-    });
-
-    if (Object.keys(newErrors).length > 0) {
-      setErrors(newErrors);
-      return;
-    }
-
-    // Send email via EmailJS
-    emailjs.send(
-      "service_ilzqc5e", // Replace with your EmailJS Service ID
-      "template_dzubpke", // Replace with your EmailJS Template ID
-      formData,
-      "gshehYehGnSTsMhHn" // Replace with your EmailJS User ID
-    )
-    .then(() => {
-      alert("Message sent successfully!");
-      setFormData({ name: "", email: "", projectType: "", mobile: "", details: "" });
-      setErrors({});
-    })
-    .catch((error) => {
-      console.error("Email sending failed:", error);
-      alert("Failed to send message. Please try again.");
-    });
-  };
-
+  ;   
  
   
 
@@ -106,14 +62,14 @@ const Contact: React.FC = () => {
           </div>
 
           {/* Right Side - Contact Form */}
-          <form onSubmit={handleSubmit} className="p-8 rounded-xl w-full bg-[rgba(44,44,44,1)]">
+          <form  className="p-8 rounded-xl w-full bg-[rgba(44,44,44,1)]">
             <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
               <input
                 type="text"
                 name="name"
                 placeholder="Full Name*"
-                value={formData.name}
-                onChange={handleChange}
+                
+                
                 className={`px-2 h-10 rounded-lg bg-opacity-100 bg-[rgba(44,44,44,1)] border ${
                   errors.name ? 'border-red-500' : 'border-white'
                 } focus:border-white`}
@@ -122,8 +78,8 @@ const Contact: React.FC = () => {
                 type="email"
                 name="email"
                 placeholder="Email*"
-                value={formData.email}
-                onChange={handleChange}
+               
+                
                 className={`px-2 h-10 rounded-lg bg-opacity-100 bg-[rgba(44,44,44,1)] border ${
                   errors.email ? 'border-red-500' : 'border-white'
                 } focus:border-white`}
@@ -132,8 +88,8 @@ const Contact: React.FC = () => {
                 type="text"
                 name="projectType"
                 placeholder="Project Type*"
-                value={formData.projectType}
-                onChange={handleChange}
+                
+                
                 className={`px-2 h-10 rounded-lg bg-opacity-100 bg-[rgba(44,44,44,1)] border ${
                   errors.projectType ? 'border-red-500' : 'border-white'
                 } focus:border-white`}
@@ -142,8 +98,8 @@ const Contact: React.FC = () => {
                 type="text"
                 name="mobile"
                 placeholder="Mobile*"
-                value={formData.mobile}
-                onChange={handleChange}
+                
+                
                 className={`px-2 h-10 rounded-lg bg-opacity-100 bg-[rgba(44,44,44,1)] border ${
                   errors.mobile ? 'border-red-500' : 'border-white'
                 } focus:border-white`}
@@ -152,8 +108,8 @@ const Contact: React.FC = () => {
             <textarea
               name="details"
               placeholder="Write Project Details*"
-              value={formData.details}
-              onChange={handleChange}
+             
+              
               className={`rounded-2xl w-full mt-4 bg-opacity-100 h-48 px-2 py-2 bg-[rgba(44,44,44,1)] border ${
                 errors.details ? 'border-red-500' : 'border-white'
               } resize-none overflow-auto focus:border-white`}
