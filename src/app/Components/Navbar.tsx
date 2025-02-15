@@ -91,7 +91,7 @@ const Navbar = () => {
                 </div>
                 <div className='md:hidden flex flex-col gap-10 pt-16 pl-12'>
                     <Link href='/' className='hover:text-[rgba(249,227,98,1)] text-3xl transition-all duration-200 font-semibold'>Home</Link>
-                    <div className='hover:text-[rgba(249,227,98,1)] text-3xl transition-all duration-200 font-semibold'>About</div>
+                    <Link href='/about'><div className='hover:text-[rgba(249,227,98,1)] text-3xl transition-all duration-200 font-semibold'>About</div></Link>
                     <Link href='/services' className='hover:text-[rgba(249,227,98,1)] text-3xl transition-all duration-200 font-semibold'>Services</Link>
                     {/* <div className='hover:text-[rgba(249,227,98,1)] text-3xl transition-all duration-200 font-semibold'>Portfolio</div> */}
                     <Link href='/contact' className='hover:text-[rgba(249,227,98,1)] text-3xl transition-all duration-200 font-semibold'>Contact</Link>
