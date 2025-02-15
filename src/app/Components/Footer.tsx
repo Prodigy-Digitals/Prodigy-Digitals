@@ -8,16 +8,16 @@ const Footer = () => {
     "Your brand is the face of your business, just like your personality defines you. You've made the first move by reaching out. Now, let's take the next step and transform your brand together."
   </div>
   <div className='flex justify-center gap-3 pb-16 pt-6'>
-    <a href='https://www.facebook.com/' target='_blank'>
+    <a href='https://www.facebook.com/profile.php?id=61572647902723' target='_blank'>
       <img src='./fb.png' alt='Facebook' className='h-6' />
     </a>
-    <a href='https://www.instagram.com/' target='_blank'>
+    <a href='https://www.instagram.com/the_prodigy.ig?igsh=aHVrYnhxamlocjVx' target='_blank'>
       <img src='./insta.png' alt='Instagram' className='h-6' />
     </a>
-    {/* <a href='https://x.com/' target='_blank'>
+    <a href='https://x.com/prodigy_dig' target='_blank'>
       <img src='./x.png' alt='Twitter' className='h-6' />
-    </a> */}
-    <a href='https://x.com/' target='_blank'>
+    </a>
+    <a href='https://www.linkedin.com/company/prodigydigitalsagency/' target='_blank'>
       <img src='./linkdln.png' alt='Linkedln' className='h-6' />
     </a>
   </div>
