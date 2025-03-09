@@ -56,7 +56,7 @@ const Contact: React.FC = () => {
               </div> 
               <div className="flex items-center gap-3">
                 <img src='./mail.png' className='h-10' />
-                <a href="mailto:neerajannangi1@gmail.com" className="hover:underline hover:text-[rgba(249,227,98,1)] pl-6 flex items-center transition-all duration-200">neerajannangi1@gmail.com</a>
+                <a href="mailto:neerajannangi1@gmail.com" className="hover:underline hover:text-[rgba(249,227,98,1)] pl-6 flex items-center transition-all duration-200">prodigydigitalsagency@gmail.com</a>
               </div>
             </div>
           </div>
