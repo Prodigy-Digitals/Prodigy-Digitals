@@ -81,12 +81,12 @@ const Navbar = () => {
 
                   <div className='pl-8 flex flex-row pt-8 items-center'>
                     <img src='./Phone.png' className='h-10'/>
-                    <a href="tel:+918328003149" className="hover:underline hover:text-[rgba(249,227,98,1)] pl-9 flex items-center transition-all duration-200">+91 8328003149</a>
+                    <a href="tel:+919063380209" className="hover:underline hover:text-[rgba(249,227,98,1)] pl-9 flex items-center transition-all duration-200">+91 90633 80209</a>
                   </div>
 
                   <div className='pl-8 flex flex-row pt-4 items-center'>
                     <img src='./mail.png' className='h-10'/>
-                    <a href="https://mail.google.com/mail/?view=cm&fs=1&to=neerajannangi1@gmail.com&su=Inquiry&body=Hello, I would like more information about..." target="_blank" className="hover:underline hover:text-[rgba(249,227,98,1)] pl-6 flex items-center transition-all duration-200">neerajannangi1@gmail.com</a>
+                    <a href="https://mail.google.com/mail/?view=cm&fs=1&to=prodigydigitalsagency@gmail.com&su=Inquiry&body=Hello, I would like more information about..." target="_blank" className="hover:underline hover:text-[rgba(249,227,98,1)] pl-6 flex items-center transition-all duration-200">prodigydigitalsagency@gmail.com</a>
                   </div>
                 </div>
                 <div className='md:hidden flex flex-col gap-10 pt-16 pl-12'>
