@@ -35,7 +35,7 @@ const About = () => {
 
       <div className="w-full flex justify-center mt-32 flex-col lg:flex-row lg:justify-between lg:px-64 gap-12 lg:gap-0">
         <div className="flex flex-col gap-8">
-            <div className="flex text-4xl justify-center text-center font-extrabold">Why Choose Prodigy?</div>
+            <div className="flex text-4xl justify-center scale-90 sm:scale-100 text-center font-extrabold">Why Choose Prodigy?</div>
 
             <div className=" flex items-center justify-center flex-row">
                <div className="text-[rgba(249,227,98,1)] text-5xl lg:text-6xl flex items-center font-extrabold w-16 h-16 mr-8">I</div>

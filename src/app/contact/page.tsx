@@ -125,11 +125,11 @@ const Contact: React.FC = () => {
             <div className="mt-4 space-y-3">
               <div className="flex items-center gap-3">
                 <img src='./Phone.png' className='h-10' />
-                <a href="tel:+918328003149" className="hover:underline hover:text-[rgba(249,227,98,1)] pl-9 flex items-center transition-all duration-200">+91 8328003149</a>
+                <a href="tel:+918328003149" className="hover:underline hover:text-[rgba(249,227,98,1)] pl-5 flex items-center transition-all duration-200">+91 90633 80209</a>
               </div> 
               <div className="flex items-center gap-3">
                 <img src='./mail.png' className='h-10' />
-                <a href="mailto:neerajannangi1@gmail.com" className="hover:underline hover:text-[rgba(249,227,98,1)] pl-6 flex items-center transition-all duration-200">neerajannangi1@gmail.com</a>
+                <a href="mailto:neerajannangi1@gmail.com" className="hover:underline hover:text-[rgba(249,227,98,1)] pl-2 flex items-center transition-all duration-200">prodigydigitalsagency@gmail.com</a>
               </div>
             </div>
           </div>
