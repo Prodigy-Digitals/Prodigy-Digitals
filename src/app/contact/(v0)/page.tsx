@@ -1,110 +1,37 @@
 "use client"
 
 import React, { useState } from "react";
-import Navbar from "../Components/Navbar";
-import Footer from "../Components/Footer";
+import Navbar from "../../Components/Navbar";
+import Footer from "../../Components/Footer";
 import { useEffect } from "react";
 
+
 const Contact: React.FC = () => {
+
   useEffect(() => {
+    // Check if the browser supports scrollRestoration
     if ('scrollRestoration' in window.history) {
       window.history.scrollRestoration = 'manual';
     }
 
+    // Define a handler to scroll to the top on page load
     const handleLoad = () => {
       window.scrollTo(0, 0);
     };
 
+    // Listen for the load event
     window.addEventListener('load', handleLoad);
 
+    // Clean up the event listener on component unmount
     return () => {
       window.removeEventListener('load', handleLoad);
     };
   }, []);
-
-  const [formData, setFormData] = useState({
-    name: "",
-    email: "",
-    projectType: "",
-    mobile: "",
-    details: ""
-  });
-  
   const [errors, setErrors] = useState<{ [key: string]: boolean }>({});
-  const [isSubmitting, setIsSubmitting] = useState(false);
-  const [submitStatus, setSubmitStatus] = useState<{
-    success: boolean;
-    message: string;
-  } | null>(null);
 
-  const validateForm = (): boolean => {
-    const newErrors: { [key: string]: boolean } = {};
-    
-    if (!formData.name.trim()) newErrors.name = true;
-    if (!formData.email.trim() || !formData.email.includes('@')) newErrors.email = true;
-    if (!formData.projectType.trim()) newErrors.projectType = true;
-    if (!formData.mobile.trim()) newErrors.mobile = true;
-    if (!formData.details.trim()) newErrors.details = true;
-    
-    setErrors(newErrors);
-    return Object.keys(newErrors).length === 0;
-  };
-
-  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
-    const { name, value } = e.target;
-    setFormData(prev => ({ ...prev, [name]: value }));
-    
-    // Clear error for this field if it exists
-    if (errors[name]) {
-      setErrors(prev => ({ ...prev, [name]: false }));
-    }
-  };
-
-  const handleSubmit = async (e: React.FormEvent) => {
-    e.preventDefault();
-    
-    if (!validateForm()) {
-      return;
-    }
-    
-    setIsSubmitting(true);
-    
-    try {
-      const response = await fetch('/api/submit-form', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify(formData),
-      });
-      
-      const data = await response.json();
-      
-      if (response.ok) {
-        setSubmitStatus({
-          success: true,
-          message: "Thank you! Your message has been sent successfully."
-        });
-        // Clear form
-        setFormData({
-          name: "",
-          email: "",
-          projectType: "",
-          mobile: "",
-          details: ""
-        });
-      } else {
-        throw new Error(data.message || 'Something went wrong');
-      }
-    } catch (error) {
-      setSubmitStatus({
-        success: false,
-        message: error instanceof Error ? error.message : "Failed to send message. Please try again."
-      });
-    } finally {
-      setIsSubmitting(false);
-    }
-  };
+  ;   
+ 
+  
 
   return (
     <div className="overflow-hidden">
@@ -135,20 +62,14 @@ const Contact: React.FC = () => {
           </div>
 
           {/* Right Side - Contact Form */}
-          <form onSubmit={handleSubmit} className="p-8 rounded-xl w-full bg-[rgba(44,44,44,1)]">
-            {submitStatus && (
-              <div className={`p-3 mb-4 rounded-lg ${submitStatus.success ? 'bg-green-700' : 'bg-red-700'}`}>
-                {submitStatus.message}
-              </div>
-            )}
-            
+          <form  className="p-8 rounded-xl w-full bg-[rgba(44,44,44,1)]">
             <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
               <input
                 type="text"
                 name="name"
                 placeholder="Full Name*"
-                value={formData.name}
-                onChange={handleChange}
+                
+                
                 className={`px-2 h-10 rounded-lg bg-opacity-100 bg-[rgba(44,44,44,1)] border ${
                   errors.name ? 'border-red-500' : 'border-white'
                 } focus:border-white`}
@@ -157,8 +78,8 @@ const Contact: React.FC = () => {
                 type="email"
                 name="email"
                 placeholder="Email*"
-                value={formData.email}
-                onChange={handleChange}
+               
+                
                 className={`px-2 h-10 rounded-lg bg-opacity-100 bg-[rgba(44,44,44,1)] border ${
                   errors.email ? 'border-red-500' : 'border-white'
                 } focus:border-white`}
@@ -167,8 +88,8 @@ const Contact: React.FC = () => {
                 type="text"
                 name="projectType"
                 placeholder="Project Type*"
-                value={formData.projectType}
-                onChange={handleChange}
+                
+                
                 className={`px-2 h-10 rounded-lg bg-opacity-100 bg-[rgba(44,44,44,1)] border ${
                   errors.projectType ? 'border-red-500' : 'border-white'
                 } focus:border-white`}
@@ -177,8 +98,8 @@ const Contact: React.FC = () => {
                 type="text"
                 name="mobile"
                 placeholder="Mobile*"
-                value={formData.mobile}
-                onChange={handleChange}
+                
+                
                 className={`px-2 h-10 rounded-lg bg-opacity-100 bg-[rgba(44,44,44,1)] border ${
                   errors.mobile ? 'border-red-500' : 'border-white'
                 } focus:border-white`}
@@ -187,8 +108,8 @@ const Contact: React.FC = () => {
             <textarea
               name="details"
               placeholder="Write Project Details*"
-              value={formData.details}
-              onChange={handleChange}
+             
+              
               className={`rounded-2xl w-full mt-4 bg-opacity-100 h-48 px-2 py-2 bg-[rgba(44,44,44,1)] border ${
                 errors.details ? 'border-red-500' : 'border-white'
               } resize-none overflow-auto focus:border-white`}
@@ -197,16 +118,11 @@ const Contact: React.FC = () => {
                 msOverflowStyle: "none"
               }}
             />
-            <button 
-              type="submit" 
-              disabled={isSubmitting}
-              className={`mt-4 bg-[rgba(249,227,98,1)] px-6 py-3 font-bold rounded-full w-full text-black ${
-                isSubmitting ? 'opacity-70 cursor-not-allowed' : ''
-              }`}
-            >
-              {isSubmitting ? "Sending..." : "Send Message →"}
+            <button type="submit" className="mt-4 bg-[rgba(249,227,98,1)] px-6 py-3 font-bold rounded-full w-full text-black">
+              Send Message →
             </button>
           </form>
+
         </div>
       </div>
       <Footer />

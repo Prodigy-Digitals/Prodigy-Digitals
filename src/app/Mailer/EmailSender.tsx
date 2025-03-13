@@ -5,6 +5,7 @@ import Papa from "papaparse";
 import toast from "react-hot-toast";
 import { useQuill } from "react-quilljs";
 import "quill/dist/quill.snow.css";
+import "./quill.css";
 
 const EmailSender = () => {
   const [file, setFile] = useState<File | null>(null);
